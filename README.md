@@ -61,13 +61,3 @@ pandas
 scikit-learn
 ```
 
-## Known Limitations
-
-This is a practice/learning project, not a production pipeline. Some intentional simplifications worth knowing about:
-
-- **No feature scaling** — `Area_SqFt` and `Rooms` are on very different scales, which affects linear regression's coefficients.
-- **`location_hack` is an ordinal hack** — `Location` is a categorical variable with no natural order; a proper approach would one-hot encode it like `Has_Pool`.
-- **Evaluation runs on the training set**, not the held-out test set, so the reported score is not a true measure of generalization.
-- **No model persistence** — the trained model isn't saved (e.g. via `joblib`), so it can't be reused without retraining.
-- **No input validation** — an unexpected `Location` value not covered by the mapping will silently produce `NaN` and break training.
-- **Hardcoded paths/params** — data path, split ratio, and random seed are fixed in code rather than configurable.
